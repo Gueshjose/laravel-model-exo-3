@@ -9,6 +9,7 @@ class HomeController extends Controller
 {   
     public function index(){
         $users= DB::table('membres')->get();
-        return view('welcome', compact('users'));
+        $hommes= DB::table('membres')->where('genre' , "Homme")->get();
+        return view('welcome', compact('users','hommes'));
     }
 }
